@@ -1,23 +1,36 @@
 {
-  "name": "dojoyamato",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts-ts": "3.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
-  },
-  "devDependencies": {
-    "@types/jest": "^23.3.13",
-    "@types/node": "^10.12.21",
-    "@types/react": "^16.8.1",
-    "@types/react-dom": "^16.0.11",
-    "typescript": "^3.3.1"
-  }
+    "name": "dojoyamato",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@directus/sdk-js": "^5.1.4",
+        "@material-ui/core": "^3.9.1",
+        "@material-ui/icons": "^3.0.2",
+        "prettier": "^1.16.4",
+        "prop-types": "^15.6.2",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0",
+        "react-redux": "^6.0.0",
+        "react-router-dom": "^4.3.1",
+        "react-scripts-ts": "3.1.0"
+    },
+    "scripts": {
+        "start": "react-scripts-ts start",
+        "build": "react-scripts-ts build",
+        "test": "react-scripts-ts test --env=jsdom",
+        "eject": "react-scripts-ts eject"
+    },
+    "devDependencies": {
+        "@types/jest": "^23.3.13",
+        "@types/node": "^10.12.21",
+        "@types/react": "^16.8.1",
+        "@types/react-dom": "^16.0.11",
+        "typescript": "^3.3.1"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    }
 }

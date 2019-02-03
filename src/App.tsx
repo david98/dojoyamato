@@ -1,22 +1,37 @@
-import * as React from 'react';
-import './App.css';
+/* React */
+import * as React from 'react'
+/* Assets */
+import './App.css'
 
-import logo from './logo.svg';
+/* Utils */
+import ApiWrapper from './utils/ApiWrapper'
+import PageWrapper from './components/PageWrapper'
 
-class App extends React.Component {
-  public render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+/* Types */
+type Props = {}
+
+type State = {
+    content: string
 }
 
-export default App;
+class App extends React.Component<Props, State> {
+    state = {
+        content: '',
+    }
+
+    componentDidMount() {
+        ApiWrapper.getAbout().then(content => this.setState({ content }))
+    }
+
+    public render() {
+        return (
+            <div className="App">
+                <PageWrapper>
+                    <p className="App-intro">{this.state.content}</p>
+                </PageWrapper>
+            </div>
+        )
+    }
+}
+
+export default App
