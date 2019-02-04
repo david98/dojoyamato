@@ -1,0 +1,14 @@
+.carousel-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.carousel-image {
+    object-fit: cover;
+    max-width: 100vw;
+    min-height: 100vh;
+    filter: brightness(15%);
+}

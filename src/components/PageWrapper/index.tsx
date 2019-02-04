@@ -16,8 +16,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
+
+import { Link } from 'react-router-dom'
+import { routes, Route as RouteType } from '../../utils/Routes'
+import './PageWrapper.css'
 
 const drawerWidth = 240
 
@@ -85,6 +87,7 @@ type Props = {
     classes: any
     theme: any
     children: any
+    title: string
 }
 
 type State = {
@@ -111,7 +114,7 @@ class PageWrapper extends React.Component<Props, State> {
 
     render() {
         // @ts-ignore
-        const { children, classes, theme, content } = this.props
+        const { children, classes, theme } = this.props
         const { drawerOpen } = this.state
 
         return (
@@ -136,7 +139,7 @@ class PageWrapper extends React.Component<Props, State> {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" color="inherit" noWrap>
-                            Persistent drawer
+                            {this.props.title}
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -160,34 +163,18 @@ class PageWrapper extends React.Component<Props, State> {
                     </div>
                     <Divider />
                     <List>
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map(
-                            (text, index) => (
-                                <ListItem button key={text}>
-                                    <ListItemIcon>
-                                        {index % 2 === 0 ? (
-                                            <InboxIcon />
-                                        ) : (
-                                            <MailIcon />
-                                        )}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} />
+                        {routes.map((route: RouteType) => (
+                            <Link
+                                key={route.id}
+                                className="react-router-link-custom"
+                                to={route.path}
+                            >
+                                <ListItem button>
+                                    <ListItemIcon>{route.icon}</ListItemIcon>
+
+                                    <ListItemText primary={route.displayName} />
                                 </ListItem>
-                            )
-                        )}
-                    </List>
-                    <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>
-                                    {index % 2 === 0 ? (
-                                        <InboxIcon />
-                                    ) : (
-                                        <MailIcon />
-                                    )}
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItem>
+                            </Link>
                         ))}
                     </List>
                 </Drawer>
@@ -195,6 +182,7 @@ class PageWrapper extends React.Component<Props, State> {
                     className={classNames(classes.content, {
                         [classes.contentShift]: drawerOpen,
                     })}
+                    style={{ padding: 0, height: '100%', width: '100%' }}
                 >
                     <div className={classes.drawerHeader} />
                     {children}
