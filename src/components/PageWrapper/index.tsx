@@ -182,9 +182,13 @@ class PageWrapper extends React.Component<Props, State> {
                     className={classNames(classes.content, {
                         [classes.contentShift]: drawerOpen,
                     })}
-                    style={{ padding: 0, height: '100%', width: '100%' }}
+                    style={{
+                        padding: 0,
+                        height: '100%',
+                        width: '100%',
+                        display: 'flex',
+                    }}
                 >
-                    <div className={classes.drawerHeader} />
                     {children}
                 </main>
             </div>

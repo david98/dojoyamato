@@ -5,7 +5,6 @@ import './App.css'
 /* Components */
 
 /* Utils */
-import ApiWrapper from './utils/ApiWrapper'
 import PageWrapper from './components/PageWrapper'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { routes } from './utils/Routes'
@@ -46,9 +45,7 @@ class App extends React.Component<Props, State> {
         ))
     }
 
-    componentDidMount() {
-        ApiWrapper.getAbout().then(content => this.setState({ content }))
-    }
+    componentDidMount() {}
 
     public render() {
         return (
